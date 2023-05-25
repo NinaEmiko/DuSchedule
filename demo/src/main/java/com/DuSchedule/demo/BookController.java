@@ -1,5 +1,7 @@
 package com.DuSchedule.demo;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +20,12 @@ public class BookController {
         try {
             Book[] books = bookService.getBooks();
             model.addAttribute("books", books);
-        } catch (RuntimeException e) {
+            System.out.println("Books: " + Arrays.toString(books));
+            return "books";
+        } catch (Exception e) {
             model.addAttribute("error", "Failed to fetch books");
+            return "error";
         }
-
-        return "books";
     }
+
 }

@@ -5,19 +5,24 @@
     <title>Books</title>
 </head>
 <body>
+    <h1>Error</h1>
+    <p th:text="${error}" style="color: red;"></p>
     <h1>Books</h1>
     <table>
         <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>ISBN</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Available</th>
         </tr>
-        <tr th:each="book : ${books}">
-            <td th:text="${book.title}"></td>
-            <td th:text="${book.author}"></td>
-            <td th:text="${book.isbn}"></td>
+        <tr th:each="book : ${books}" th:class="${book.available} ? 'available' : 'unavailable'">
+            <td th:text="${book.id}">ID</td>
+            <td th:text="${book.name}">Name</td>
+            <td th:text="${book.type}">Type</td>
+            <td th:text="${book.available}">Available</td>
         </tr>
     </table>
+    
     <p th:if="${error}" th:text="${error}" style="color: red;"></p>
 </body>
 </html>
