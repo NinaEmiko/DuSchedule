@@ -8,7 +8,8 @@ public class APIKeyLoader {
     public static String getAPIKey() {
         Properties properties = new Properties();
         try {
-            FileInputStream file = new FileInputStream("config.properties");
+            String homeDirectory = System.getProperty("user.home");
+            FileInputStream file = new FileInputStream(homeDirectory + "/Documents/Dev/config.properties");
             properties.load(file);
             file.close();
             return properties.getProperty("api.key");
