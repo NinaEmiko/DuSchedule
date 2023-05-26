@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CarService {
 
-    private static final String API_URL = "https://car-models-and-data.p.rapidapi.com/api/v1/brands";
+    private static final String API_URL = "https://simple-books-api.glitch.me/books";
 
     public Car[] getCars() {
         RestTemplate restTemplate = new RestTemplate();
